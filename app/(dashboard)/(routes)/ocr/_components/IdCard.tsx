@@ -52,7 +52,7 @@ const IdCard: React.FC = () => {
     if (file) {
       handleSubmit();
     }
-  }, [file]);
+  }, [file, loading]);
 
   return (
     <>
