@@ -32,7 +32,7 @@ const IdCard: React.FC = () => {
       formData.append('file', file);
 
       try {
-        const response = await axios.post('http://0.0.0.0:5500/khm_idcard', formData, {
+        const response = await axios.post('http://172.17.2.69:5000/khm_ocr', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
             'accept': 'application/json',
@@ -108,13 +108,13 @@ const IdCard: React.FC = () => {
               <div>Loading...</div>
             ) : (
               <div className='space-y-2'>
-                <h1>ID Card No: {result?.id_number || 'XXXXXXXX'}</h1>
+                <h1>ID Card No: {result?.id_num || 'XXXXXXXX'}</h1>
                 <p>Khmer Name: {result?.khm_name || 'XXX XXXXXX'}</p>
                 <p>Latin Name: {result?.latin_name || 'XXX XXXXXX'}</p>
-                <p>Gender: {result?.gender || 'XXX'}</p>
+                <p>Gender: {result?.sex || 'XXX'}</p>
                 <p>DOB: {result?.dob || 'XX / XX / XXXX'}</p>
                 <p>Address: {result?.address || 'XXXX XXXX XXXX XXXX'}</p>
-                <p>Expired Date: {result?.expired_date || 'XX / XX / XX'}</p>
+                <p>Expired Date: {result?.expire || 'XX / XX / XX'}</p>
               </div>
             )}
           </div>
